@@ -1,0 +1,211 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+<link rel="stylesheet" href="student_home.css">
+
+<style>
+  header h1 {
+    text-align: center;
+    font-size: 70px;
+    font-weight: 600;
+    font-family: 'Anek Odia', sans-serif;
+    background-image: linear-gradient(to top, #202024, #0d0c0d);
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+  }
+</style>
+
+{% endblock %}
+<!-- <title>Student</title>
+</head> -->
+{% block content %}
+<br>
+<header>
+  <h1>Student Information Interface</h1>
+</header>
+<br>
+<br>
+
+<div class="accordion" id="accordionExample">
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+        aria-expanded="true" aria-controls="collapseOne"
+        style="background-color: rgba(24, 24, 24, 0.997); color: antiquewhite;">
+        View Record
+      </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <form action="{{url_for('student_detail_view')}}" method="POST">
+          <div class="mb-3">
+            <label for="Roll_No" class="form-label">Student Reg No</label>
+            <input type="text" class="form-control" id="Roll_no" name="register_no" aria-describedby="StudentRollNo">
+          </div>
+          <button type="submit" class="btn btn-primary">View</button>
+        </form>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Reg No</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Contact No</th>
+              <th scope="col">Address</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingTwo">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+        aria-expanded="false" aria-controls="collapseTwo"
+        style="background-color: rgba(24, 24, 24, 0.997); color: antiquewhite;">
+        Add Record
+      </button>
+    </h2>
+    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <form action="{{url_for('student_add_view')}}" method="post">
+          <div class="mb-3">
+            <label for="Reg_No" class="form-label">Student Reg No</label>
+            <input type="text" class="form-control" id="Reg_no" name="add_reg_no" aria-describedby="StudentRegNo">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="Name">Name</span>
+            <input type="text" class="form-control" aria-label="Name" name="add_stud_name"
+              aria-describedby="Student_Name">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="Email">Email</span>
+            <input type="email" class="form-control" aria-label="Email" name="add_stud_email"
+              aria-describedby="Student_Email">
+          </div>
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="No">Contact No</span>
+            <input type="text" class="form-control" aria-label="No" name="add_stud_num"
+              aria-describedby="Student_contact_no">
+          </div>
+
+          <div class="input-group">
+            <span class="input-group-text">Address</span>
+            <textarea class="form-control" aria-label="Address" name="add_stud_add"></textarea>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingThree">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+        aria-expanded="false" aria-controls="collapseThree"
+        style="background-color: rgba(24, 24, 24, 0.997); color: antiquewhite;">
+        Delete Record
+      </button>
+    </h2>
+    <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <form action="{{url_for('student_delete_view')}}" method="post">
+          <div class="mb-3">
+            <label for="Reg_No" class="form-label">Student Reg No</label>
+            <input type="text" class="form-control" id="Reg_no" name="delete_reg_no" aria-describedby="StudentRegNo">
+          </div>
+          <button type="submit" class="btn btn-primary">Delete</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFour">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+        aria-expanded="false" aria-controls="collapseFour"
+        style="background-color: rgba(24, 24, 24, 0.997); color: antiquewhite;">
+        Student Fees Details
+      </button>
+    </h2>
+    <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <form action="{{url_for('student_fee_view')}}" method="post">
+          <div class="mb-3">
+            <label for="Reg_No" class="form-label">Student Reg No</label>
+            <input type="text" class="form-control" id="Reg_no" name="fee_reg_no" aria-describedby="StudentRegNo">
+          </div>
+          <button type="submit" class="btn btn-primary">View</button>
+        </form>
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Reg No</th>
+              <th scope="col">Total fees</th>
+              <th scope="col">Fees due</th>
+              <th scope="col">Due Date</th>
+              <th scope="col">Late fees</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"></th>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <div class="accordion-item">
+    <h2 class="accordion-header" id="headingFive">
+      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"
+        aria-expanded="false" aria-controls="collapseFive"
+        style="background-color: rgba(24, 24, 24, 0.997); color: antiquewhite;">
+        Subject Details
+      </button>
+    </h2>
+    <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive"
+      data-bs-parent="#accordionExample">
+      <div class="accordion-body">
+        <form action="{{url_for('student_subject_view')}}" method="post">
+          <div class="mb-3">
+            <label for="student_reg_no" class="form-label">Reg No</label>
+            <input type="text" class="form-control" id="reg_no" aria-describedby="student_reg_no" name="sub_reg_no">
+          </div>
+          <div class="mb-3">
+            <label for="subject_id" class="form-label">Subject Id</label>
+            <input type="text" class="form-control" id="subject_id" aria-describedby="subject_id" name="sub_id">
+          </div>
+          <div class="mb-3">
+            <label for="subject_name" class="form-label">Subject Name</label>
+            <input type="text" class="form-control" id="subject_name" aria-describedby="subject_name" name="sub_name">
+          </div>
+          <div class="mb-3">
+            <label for="faculty_id" class="form-label">Faculty Id</label>
+            <input type="text" class="form-control" id="faculty_id" aria-describedby="faculty_id" name="sub_fac_id">
+          </div>
+          <button type="submit" class="btn btn-primary">Add</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

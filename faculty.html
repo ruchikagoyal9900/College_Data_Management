@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+    
+{% block styles %}
+    <style>
+        header h1 {
+            text-align: center;
+            font-size: 70px;
+            font-weight: 600;
+            font-family: 'Anek Odia', sans-serif;
+            background-image: linear-gradient(to left, #1e1e20, #000000);
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+            }
+    </style>
+  {% endblock %}
+    <!-- <title>Faculty</title> -->
+{% block content %}
+      <br>
+      <header>
+        <h1>Faculty Information Interface</h1>
+      </header>
+      <br>
+      <br>
+
+      <div class="accordion" id="accordionExample">
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingOne">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne" style="background-color: rgba(24, 24, 24, 0.997); color: antiquewhite;" >
+              View Record
+            </button>
+          </h2>
+          <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="Id" class="form-label">Fculty Id</label>
+                      <input type="text" class="form-control" id="Id" aria-describedby="Facultyid">
+                    </div>
+                    <button type="submit" class="btn btn-primary">View</button>
+                </form>
+                <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">Faculty Id</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Contact No</th>
+                        <th scope="col">Address</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row"></th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo" style="background-color: rgba(24, 24, 24, 0.997); color: antiquewhite;">
+              Add Record
+            </button>
+          </h2>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="Roll_No" class="form-label">Faculty Id</label>
+                      <input type="text" class="form-control" id="Id" aria-describedby="FacultyId">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="Name">Name</span>
+                        <input type="text" class="form-control" aria-label="Name" aria-describedby="Faculty_Name">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="Email">Email</span>
+                        <input type="email" class="form-control" aria-label="Email" aria-describedby="Faculty_Email">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="No">Contact No</span>
+                        <input type="text" class="form-control" aria-label="No" aria-describedby="Faculty_contact_no">
+                    </div>
+
+                    <div class="input-group">
+                        <span class="input-group-text">Address</span>
+                        <textarea class="form-control" aria-label="Address"></textarea>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </form>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <h2 class="accordion-header" id="headingThree">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree" style="background-color: rgba(24, 24, 24, 0.997); color: antiquewhite;">
+              Delete Record
+            </button>
+          </h2>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+                <form>
+                    <div class="mb-3">
+                      <label for="Roll_No" class="form-label">Faculty Id</label>
+                      <input type="text" class="form-control" id="Roll_no" aria-describedby="StudentRollNo">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Delete</button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+{% endblock %}
